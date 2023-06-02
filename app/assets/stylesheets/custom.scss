@@ -1,9 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h1 {
+  font-size: 45px;
+  padding-bottom: 20px;
+  margin-top: -1px;
+  text-align: center;
+}
+
+
 // ヘッダー
 
-#header-logo {
+#header_logo {
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -13,23 +21,22 @@
   float: left;
 }
 
-#header-list {
+#header_list {
   color: lightgray;
 } 
 
-#header-list:hover {
+#header_list:hover {
   color: white;
   text-decoration: none;
 }
 
-
-#dropdown-title {
+#dropdown_title {
   color: lightgray;
   display: inline-box;
   text-decoration: none;
 }
 
-#dropdown-title:hover {
+#dropdown_title:hover {
   color: white;
   text-decoration: none;
 }
@@ -40,8 +47,13 @@
 
 // トップ画面
 
-.signup-link {
+.signup_link {
   margin-top: 20px;
+}
+
+// アカウント作成
+#form_btn {
+  margin-top: 16px;
 }
 
 // debug
