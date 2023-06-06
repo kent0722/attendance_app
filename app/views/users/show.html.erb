@@ -1,2 +1,50 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% provide(:title, @user.name) %>
+
+<div>
+  <table class="table table-bordered table-condensed text-center">
+    <tr>
+      <td class="col-lg-5">
+        <div class="btn-users-show">
+          <%= link_to " ⇦ ", "", class: "btn btn-primary btn-sm" %>
+          時間管理表
+          <%= link_to " ⇨ ", "", class: "btn btn-primary btn-sm" %>
+        </div>
+      </td>
+      <td class="col-sm-3">指定勤続時間</td>
+      <td class="col-sm-3">基本時間</td>
+      <td class="col-1">初日</td>
+    </tr>
+  </table>
+  <table class="table table-bordered table-condensed table-user text-center">
+    <tr>
+      <td class="col-lg-5">所属</td>
+      <td class="col-md-3">氏名<%= @user.name %></td>
+      <td class="col-1">コード</td>
+      <td></td>
+      <td class="col-sm-2">出勤日数</td>
+      <td class="col-sm-1">締め</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <%= link_to "勤怠を編集", "", class: "btn btn-primary" %>
+  <table class="table table-bordered table-condensed table-list">
+    <tr>
+      <th>日付</th>
+      <th>曜日</th>
+      <th>出社</th>
+      <th>退社</th>
+      <th>在社時間</th>
+      <th>備考</th>
+      <th>時</th>
+      <th>分</th>
+      <th></th>
+      <th>時</th>
+      <th>分</th>
+      <th></th>
+    </tr>
+    
+  </table>
+</div>
+
