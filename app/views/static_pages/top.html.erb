@@ -5,7 +5,9 @@
     <div class="jumbotron text-center">
       <h1>勤怠システム</h1>
       <%= link_to "ログイン", login_path, class:"btn btn-primary btn-lg"%>
-      <p class="signup_link">アカウント作成は<%= link_to "こちら", new_user_path %>から</p>
+      <p class="signup_link">アカウント作成は
+        <%= link_to "こちら", new_user_path, class: "login_new_create" %>から
+      </p>
     </div>
   </div>
 </div>

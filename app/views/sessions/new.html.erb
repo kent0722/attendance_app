@@ -18,7 +18,9 @@
       <% end %>
             
       <%= f.submit "Log in", class: "btn btn-primary btn-block", id: "login-btn" %>
-      <p>アカウント作成は<%= link_to "こちら", new_user_path(@user) %>から</p>
+      <p>アカウント作成は
+        <%= link_to "こちら", new_user_path(@user), class: "login_new_create" %>から
+      </p>
       
     <% end %>
   </div>
