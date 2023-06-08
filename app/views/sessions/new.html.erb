@@ -7,18 +7,16 @@
     <%= form_with(scope: :session, url: login_path, local: true, method: :post) do |f| %>
       
       <%= f.label :email, class: "label-form" %>
-      <%= f.text_field :email, class: "form-control" %>
+      <%= f.email_field :email, class: "form-control" %>
 
       <%= f.label :password, class: "label-form" %>
-      <%= f.text_field :password, class: "form-control" %>
+      <%= f.password_field :password, class: "form-control" %>
       
-        
-      <div class="form-check">
-        <%= f.check_box :remember_me, class: "form-check-input" %>
-        <%= f.label :remember_me, class: "form-check-label" %>
-        ログイン情報を記録する
-      </div>
-      
+      <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
+        <%= f.check_box :remember_me, id: "remember-me" %>
+        <span>ログイン情報を記憶する</span>
+      <% end %>
+            
       <%= f.submit "Log in", class: "btn btn-primary btn-block", id: "login-btn" %>
       <p>アカウント作成は<%= link_to "こちら", new_user_path(@user) %>から</p>
       
