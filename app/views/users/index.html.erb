@@ -4,7 +4,7 @@
   <div class="col-md-10 col-md-offset-1">
     <h1>ユーザ一覧</h1>
     <%= will_paginate %>
-    <table class="table table-condensed table-hover">
+    <table class="table table-condensed table-hover", id= "table-users">
       <thead>
         <tr>
           <th><%= User.human_attribute_name :name %></th>
@@ -14,6 +14,15 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= link_to user.name, user %></td>
+          <td></td>
+          <td></td>
+          <td>
+            <% if current_user.admin? && !current_user?(user) %>
+              <%= link_to "基本情報編集", "#", class: "btn btn-success table-btn" %>
+              <%= link_to "削除", user_path(user), method: :delete,
+                  data: { confirm: "#{user.name} を削除してよろしいですか？" }, class: "btn btn-danger table-btn" %>
+　　　　　　<% end %>
+          </td>
         </tr>
       <% end %>
     </table>

@@ -10,18 +10,18 @@
           <%= link_to " ⇨ ", "", class: "btn btn-primary btn-sm" %>
         </div>
       </td>
-      <td class="col-sm-3">指定勤続時間</td>
-      <td class="col-sm-3">基本時間</td>
+      <td class="col-sm-3">指定勤続時間 : <%= format_basic_info(@user.work_time) %></td>
+      <td class="col-sm-3">基本時間 : <%= format_basic_info(@user.basic_time) %></td>
       <td class="col-1">初日</td>
     </tr>
   </table>
   <table class="table table-bordered table-condensed table-user text-center">
     <tr>
       <td class="col-lg-5">所属</td>
-      <td class="col-md-3">氏名<%= @user.name %></td>
+      <td class="col-md-3">氏名 : <%= @user.name %></td>
       <td class="col-1">コード</td>
       <td></td>
-      <td class="col-sm-2">出勤日数</td>
+      <td class="col-sm-2">出勤日数 : </td>
       <td class="col-sm-1">締め</td>
     </tr>
   </table>
