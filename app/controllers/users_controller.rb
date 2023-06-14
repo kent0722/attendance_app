@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
     
   def show
+    @first_day = Date.current.beginning_of_month
+    @last_day = @first_day.end_of_month
   end
   
   def new
@@ -53,7 +55,7 @@ class UsersController < ApplicationController
        flash[:danger] = "#{@user.name}の更新は失敗しました。
        <br>" + @user.errors.full_messages.join("<br>")
      end
-     redirect_to users_url
+     redirect_to user_path
    end
 
   
