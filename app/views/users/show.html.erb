@@ -29,7 +29,7 @@
 </div>
 
 <div>
-  <%= link_to "勤怠を編集", "", class: "btn btn-primary" %>
+  <%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: "btn btn-primary" %>
   <table class="table table-bordered table-striped table-condensed table-list">
     <thead>
       <tr>
@@ -93,4 +93,3 @@
     </tfoot>
   </table>
 </div>
-

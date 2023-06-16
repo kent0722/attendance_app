@@ -1,0 +1,42 @@
+<% provide(:title, "attendace_edit") %>
+
+<%= form_with(model: @user, url: attendances_update_one_month_user_path(date: @first_day),
+  local: true, method: :patch) do |f| %>
+  <div>
+    <table class="table table-bordered table-striped table-condensed text-center">
+      <thead>
+        <tr>
+          <td class="table-td-1">日付</td>
+          <td class="table-td-1">曜日</td>
+          <td class="table-td-2">出社</td>
+          <td class="table-td-2">退社</td>
+          <td class="table-td-3">在社時間</td>
+          <td class="common-width">備考</td>
+          <td class="common-width">残業指示</td>
+          <td class="common-width">指示者</td>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @attendances.each do |day| %>
+          <tr>
+            <td><%= l(day.worked_on, format: :short) %></td>
+            <td><%= $days_of_the_week[day.worked_on.wday] %></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="text-center">
+      <%= f.submit "編集を保存する", class: "btn btn-lg btn-primary" %>
+      <%= link_to "キャンセル", user_path(date: @first_day), 
+        class: "btn btn-default btn-lg" %>
+  </div>
+<% end %>  
