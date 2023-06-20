@@ -54,7 +54,9 @@
       <% @attendances.each do |day| %>
         <tr>
           <td><%= l(day.worked_on, format: :short) %></td>
-          <td><%= $days_of_the_week[day.worked_on.wday] %></td>
+          <td class="<%= day.worked_on.sunday? ? 'sunday' : (day.worked_on.saturday? ? 'saturday' : '') %>">
+            <%= $days_of_the_week[day.worked_on.wday] %>
+          </td>
           <td><%= l(day.started_at, format: :time_hour) if day.started_at.present? %></td>
           <td><%= l(day.started_at, format: :time_minutes) if day.started_at.present? %></td>
           <td>
