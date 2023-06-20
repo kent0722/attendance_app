@@ -3,6 +3,19 @@
 
   <div class="col-md-10 col-md-offset-1">
     <h1>ユーザ一覧</h1>
+    
+    <%= form_tag(users_path, method: :get, class: "form-inline text-right") do %>
+      <div>
+        <%= label_tag :search, "ユーザー名検索", class: "search-form-name" %>
+      </div>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "キーワードを入力" %>
+        <span class="input-group-btn">
+          <%= submit_tag "検索", class: "btn btn-primary btn-search" %>
+        </span>
+      </div>
+    <% end %>
+      
     <%= will_paginate %>
     <table class="table table-condensed table-hover", id= "table-users">
       <thead>
@@ -11,6 +24,7 @@
         </tr>
       </thead>
       
+      <% if @users.any? %>
       <% @users.each do |user| %>
         <tr>
           <td><%= link_to user.name, user, class: "user-list" %></td>
@@ -23,6 +37,11 @@
                   data: { confirm: "#{user.name} を削除してよろしいですか？" }, class: "btn btn-danger table-btn" %>
 　　　　　　<% end %>
           </td>
+        </tr>
+      <% end %>
+      <% else %>
+        <tr>
+          <td colspan="4">該当するユーザーは見つかりませんでした。</td>
         </tr>
       <% end %>
     </table>
