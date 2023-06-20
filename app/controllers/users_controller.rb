@@ -8,11 +8,13 @@ class UsersController < ApplicationController
   def index
     if params[:search].present?
       @users = User.where("name LIKE ?", "%#{params[:search]}%").paginate(page: params[:page])
+      @title = "検索結果"
     else
       @users = User.paginate(page: params[:page])
+      @title = "ユーザ一覧"
     end
   end
-    
+      
   def show
     @worked_sum = @attendances.where.not(started_at: nil).count
   end
