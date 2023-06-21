@@ -57,19 +57,28 @@
           <td class="<%= day.worked_on.sunday? ? 'sunday' : (day.worked_on.saturday? ? 'saturday' : '') %>">
             <%= $days_of_the_week[day.worked_on.wday] %>
           </td>
-          <td><%= l(day.started_at, format: :time_hour) if day.started_at.present? %></td>
-          <td><%= l(day.started_at, format: :time_minutes) if day.started_at.present? %></td>
+          <td>
+            <%= l(day.started_at&.change(min: (day.started_at.min / 15) * 15), format: :time_hour) if day.started_at.present? %>
+          </td>
+          <td>
+            <%= l(day.started_at&.change(min: (day.started_at.min / 15) * 15), format: :time_minutes) if day.started_at.present? %>
+          </td>
           <td>
             <% if btn_text = attendance_state(day) %>
-              <%= link_to "#{btn_text}", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+              <%= link_to "#{btn_text}", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance btn-block" %>
             <% end %>
           </td>
-          <td colspan="6"><%= l(day.finished_at, format: :time_hour) if day.finished_at.present? %></td>
-          <td><%= l(day.finished_at, format: :time_minutes) if day.finished_at.present? %></td>
+          <td colspan="6">
+            <%= l(day.finished_at&.change(min: (day.finished_at.min / 15) * 15), format: :time_hour) if day.finished_at.present? %>
+          </td>
+          <td>
+            <%= l(day.finished_at&.change(min: (day.finished_at.min / 15) * 15), format: :time_minutes) if day.finished_at.present? %>
+          </td>
           <td></td>
           <td>
             <% if day.started_at.present? && day.finished_at.present? %>
-              <%= str_times = working_times(day.started_at, day.finished_at) %>
+              <%= str_times = working_times(day.started_at&.change(min: (day.started_at&.min / 15) * 15), 
+                                            day.finished_at&.change(min: (day.finished_at&.min / 15) * 15)) %>
               <% @total_working_times = @total_working_times.to_f + str_times.to_f %>
             <% end %>
           </td>
