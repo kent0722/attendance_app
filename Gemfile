@@ -31,4 +31,3 @@ end
 # Mac環境でもこのままでOKです
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-ff
