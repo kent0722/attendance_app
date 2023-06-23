@@ -1,12 +1,12 @@
 databases:
-  - name: dpg-ciajjr59aq007t99m1og-a
-    databaseName: sample_db_b8qj
-    user: sample_db_b8qj_user
+  - name: Sample_DB
+    databaseName: sample_db_o0at
+    user: Sample_app
     region: singapore
 
 services:
   - type: web
-    name: sample_app
+    name: Sample_app
     env: ruby
     region: singapore
     plan: free
@@ -15,7 +15,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: sample_DB
+          name: Sample_app
           property: connectionString
       - key: SECRET_KEY_BASE
         sync: false
