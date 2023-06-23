@@ -1,7 +1,7 @@
 databases:
-  - name: sample_DB
+  - name: dpg-ciajjr59aq007t99m1og-a
     databaseName: sample_db_b8qj
-    user: sample_app
+    user: sample_db_b8qj_user
     region: singapore
 
 services:
