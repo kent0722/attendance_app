@@ -17,5 +17,5 @@ services:
         fromDatabase:
           name: Sample_app
           property: connectionString
-      - key: SECRET_KEY_BASE
+      - key: <%= ENV['SECRET_KEY_BASE'] %>
         sync: false
