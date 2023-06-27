@@ -167,8 +167,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.3)
-      mini_portile2 (~> 2.8.0)
+    sqlite3 (1.3.13)
     thor (1.2.2)
     thread_safe (0.3.6)
     tilt (2.2.0)
@@ -188,7 +187,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    will_paginate (3.3.1)
+    will_paginate (3.1.6)
 
 PLATFORMS
   ruby
@@ -210,12 +209,12 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
+  sqlite3 (= 1.3.13)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  will_paginate (~> 3.3)
+  will_paginate (= 3.1.6)
 
 BUNDLED WITH
    2.1.4
